@@ -3,6 +3,7 @@ const path = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const { CleanWebpackPlugin } = require('clean-webpack-plugin');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
+const CopyPlugin = require('copy-webpack-plugin');
 
 const isProduction = process.env.NODE_ENV === 'production';
 
@@ -48,6 +49,7 @@ module.exports = {
       title: 'Joe Walton - Software Developer',
       template: path.resolve(__dirname, './src/index.html'),
     }),
+    new CopyPlugin([{ from: './_redirects' }]),
   ],
   devServer: {
     compress: true,
