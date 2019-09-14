@@ -1,12 +1,13 @@
 import React, { useState, useReducer, useCallback, createRef } from 'react';
 
+import { SpinnerChoice } from '../types';
 import Spinner from '../components/Spinner';
 
-const ACTIONS = {
-  ADD_CHOICE: 'ADD_CHOICE',
-};
+enum ACTIONS {
+  ADD_CHOICE,
+}
 
-const reducer = (state, action) => {
+const reducer = (state: SpinnerChoice[], action: { type: ACTIONS; name: string }) => {
   switch (action.type) {
     case ACTIONS.ADD_CHOICE:
       return [

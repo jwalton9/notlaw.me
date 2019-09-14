@@ -2,20 +2,25 @@ import React, { useRef, useState, useEffect, useCallback } from 'react';
 import PropTypes from 'prop-types';
 
 import { polarToCartesian } from '../tools/coordinates';
+import { SpinnerChoice } from '../types';
 
-const createPath = (theta, i, offset) => {
+const createPath = (theta: number, i: number, offset: number) => {
   const [sx, sy] = polarToCartesian(30, theta * i + offset);
   const [ex, ey] = polarToCartesian(30, theta * (i + 1) + offset);
 
   return `M 40 40 L ${sx + 40} ${sy + 40} A 30 30 0 0 1 ${ex + 40} ${ey + 40} Z`;
 };
 
-const Spinner = ({ choices }) => {
+interface Props {
+  choices: SpinnerChoice[];
+}
+
+const Spinner = ({ choices }: Props) => {
   const [spinning, setSpinning] = useState(false);
 
-  const offset = useRef(0);
-  const time = useRef(null);
-  const animationFrame = useRef(null);
+  const offset = useRef<number>(0);
+  const time = useRef<number>(null);
+  const animationFrame = useRef<number>(null);
 
   const theta = (2 * Math.PI) / choices.length;
 
