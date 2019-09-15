@@ -1,8 +1,7 @@
 import React, { useRef, useState, useEffect, useCallback } from 'react';
-import PropTypes from 'prop-types';
 
-import { polarToCartesian } from '../tools/coordinates';
-import { SpinnerChoice } from '../types';
+import { polarToCartesian } from '../../tools/coordinates';
+import { SpinnerChoice } from '../../types';
 
 const createPath = (theta: number, i: number, offset: number) => {
   const [sx, sy] = polarToCartesian(30, theta * i + offset);
@@ -15,12 +14,12 @@ interface Props {
   choices: SpinnerChoice[];
 }
 
-const Spinner = ({ choices }: Props) => {
+export const Spinner = ({ choices }: Props) => {
   const [spinning, setSpinning] = useState(false);
 
   const offset = useRef<number>(0);
-  const time = useRef<number>(null);
-  const animationFrame = useRef<number>(null);
+  const time = useRef<number>();
+  const animationFrame = useRef<number>();
 
   const theta = (2 * Math.PI) / choices.length;
 
@@ -30,7 +29,9 @@ const Spinner = ({ choices }: Props) => {
       const deltaT = t - time.current;
       offset.current = (offset.current + deltaT * 0.01) % (2 * Math.PI);
       choices.forEach(({ ref }, i) => {
-        ref.current.setAttribute('d', createPath(theta, i, offset.current));
+        if (ref.current) {
+          ref.current.setAttribute('d', createPath(theta, i, offset.current));
+        }
       });
     }
     time.current = t;
@@ -41,9 +42,12 @@ const Spinner = ({ choices }: Props) => {
     if (spinning) {
       animationFrame.current = requestAnimationFrame(tick);
     }
+
     return () => {
-      time.current = null;
-      cancelAnimationFrame(animationFrame.current);
+      time.current = undefined;
+      if (animationFrame.current) {
+        cancelAnimationFrame(animationFrame.current);
+      }
     };
   }, [spinning]);
 
@@ -59,14 +63,3 @@ const Spinner = ({ choices }: Props) => {
     </>
   );
 };
-
-Spinner.propTypes = {
-  choices: PropTypes.arrayOf(
-    PropTypes.shape({
-      ref: PropTypes.any.isRequired,
-      color: PropTypes.string.isRequired,
-    }),
-  ).isRequired,
-};
-
-export default Spinner;

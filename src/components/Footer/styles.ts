@@ -1,15 +1,18 @@
-.footer {
+import { css } from 'emotion';
+
+import { colors } from '../../tokens';
+
+export const footer = css`
   display: flex;
   align-items: center;
   justify-content: space-between;
-  background-color: color(primary);
+  background-color: ${colors.primary};
   padding: 10px;
-  color: color(secondary);
+  color: ${colors.secondary};
   white-space: nowrap;
   flex-wrap: wrap;
-}
-
-.social {
+`;
+export const social = css`
   float: right;
   display: flex;
   align-items: center;
@@ -19,15 +22,15 @@
 
   svg {
     height: 30px;
-    fill: color(secondary);
+    fill: ${colors.secondary};
     transition: fill 0.2s ease-in-out;
 
     &:hover {
-      fill: color(tertiary);
+      fill: ${colors.tertiary};
     }
   }
 
   li:first-of-type svg {
     padding: 2.5px;
   }
-}
+`;

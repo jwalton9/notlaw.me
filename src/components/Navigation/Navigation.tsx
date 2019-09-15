@@ -1,25 +1,26 @@
 import React, { useState, useCallback } from 'react';
 import { Link } from 'react-router-dom';
-import cx from 'classnames';
 
-import Logo from './Logo';
+import Logo from '../Logo';
 
-const Navigation = () => {
+import * as styles from './styles'
+
+export const Navigation = () => {
   const [open, setOpen] = useState(false);
 
   const handleClick = useCallback(() => setOpen(state => !state), [setOpen]);
 
   return (
-    <header className="nav">
+    <header className={styles.nav}>
       <Link to="/">
-        <Logo className="nav-logo" />
+        <Logo className={styles.logo} />
       </Link>
-      <button className={cx('hamburger', { open })} onClick={handleClick}>
-        <span className="hamburger-1"></span>
-        <span className="hamburger-2"></span>
-        <span className="hamburger-3"></span>
+      <button className={styles.hamburger} onClick={handleClick}>
+        <span className={styles.hamburger1(open)}></span>
+        <span className={styles.hamburger2(open)}></span>
+        <span className={styles.hamburger3(open)}></span>
       </button>
-      <ul className={cx('nav-links', { open })}>
+      <ul className={styles.links(open)}>
         <li>
           <Link to="/blog">Blog</Link>
         </li>
@@ -33,5 +34,3 @@ const Navigation = () => {
     </header>
   );
 };
-
-export default Navigation;

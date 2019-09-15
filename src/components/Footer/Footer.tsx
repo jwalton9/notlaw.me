@@ -1,9 +1,11 @@
 import React from 'react';
 
-const Footer = () => (
-  <footer className="footer">
+import * as styles from './styles';
+
+export const Footer = () => (
+  <footer className={styles.footer}>
     <span>&copy; Joe Walton {new Date().getUTCFullYear()}</span>
-    <ul className="social">
+    <ul className={styles.social}>
       <li>
         <a href="https://www.github.com/jwalton9">
           <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512">
@@ -35,5 +37,3 @@ const Footer = () => (
     </ul>
   </footer>
 );
-
-export default Footer;
