@@ -2,6 +2,7 @@ pipeline {
   agent {
     docker {
       image 'node:12-alpine'
+      args '-v $HOME/.cache/yarn:/.cache/yarn'
     }
   }
 
