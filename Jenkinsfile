@@ -1,21 +1,15 @@
 pipeline {
   agent {
     docker {
-      image 'node:12-alpine'
-      args '-v $HOME/.cache/yarn:/.cache/yarn'
+      image 'node:12'
+      args '-e HOME=/var/jenkins_home -v /var/jenkins_home/.cache/yarn:/var/jenkins_home/.cache/yarn'
     }
   }
 
   stages {
     stage('Install') {
       steps {
-          sh 'yarn install'
-      }
-    }
-
-    stage('Lint') {
-      steps {
-        sh 'yarn lint'
+        sh 'yarn install'
       }
     }
 

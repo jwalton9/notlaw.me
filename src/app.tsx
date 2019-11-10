@@ -9,7 +9,6 @@ import Navigation from './components/Navigation';
 import Footer from './components/Footer';
 
 const Home = lazy(() => import(/* webpackChunkName: 'home' */ './pages/Home'));
-const Spinner = lazy(() => import(/* webpackChunkName: 'spinner' */ './pages/Spinner'));
 
 injectGlobal`
 html,
@@ -44,7 +43,6 @@ const App = () => (
       <Navigation />
       <div className="content">
         <Route exact path="/" component={Home} />
-        <Route exact path="/spinner" component={Spinner} />
       </div>
       <Footer />
     </Suspense>
