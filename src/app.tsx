@@ -19,9 +19,9 @@ body {
 body {
   font-family: Lato, Helvetica, Arial, sans-serif;
   font-weight: 400;
-  font-size: 16px;
-  color: #fff;
-  background: #1a1a1a;
+  font-size: 18px;
+  color: #1a1a1a;
+  background: #fff;
 }
 
 *, *::before, *::after {

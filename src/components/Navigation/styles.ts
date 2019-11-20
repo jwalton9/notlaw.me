@@ -9,11 +9,10 @@ export const nav = css`
   padding: 1rem 2rem;
   justify-content: space-between;
   align-items: center;
-  background: rgba(255, 255, 255, 0.1);
 `;
 
 export const logo = css`
-  height: 1.5rem;
+  height: 2rem;
 
   path {
     fill: #fff;
@@ -31,13 +30,10 @@ export const links = css`
   padding: 0;
   align-items: center;
 
-  li {
-    padding: 0 1rem;
-    a {
-      text-transform: uppercase;
-      color: inherit;
-      text-decoration: none;
-    }
+  li a {
+    text-transform: uppercase;
+    color: inherit;
+    text-decoration: none;
   }
 `;
 
@@ -49,11 +45,11 @@ export const social = css`
   align-items: center;
 
   li {
-    padding: 0 0.25rem;
+    margin: 0 0.5rem;
   }
 
   svg {
-    height: 1.5rem;
+    height: 2rem;
     fill: #fff;
   }
 `;

@@ -25,6 +25,14 @@ module.exports = {
           cacheDirectory: true,
         },
       },
+      {
+        test: /\.webp$/,
+        use: [
+          {
+            loader: 'file-loader',
+          },
+        ],
+      },
     ],
   },
   resolve: {
