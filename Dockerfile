@@ -1,10 +1,10 @@
-FROM node:12 as staging
+FROM --platform=$BUILDPLATFORM node:12 as staging
 
 ADD . .
 RUN yarn install --frozen-lockfile
 RUN yarn build
 
-FROM nginx:alpine
+FROM --platform=$BUILDPLATFORM nginx:alpine
 
 COPY --from=staging ./dist/ /var/www
 COPY ./nginx.conf /etc/nginx/conf.d/default.conf
