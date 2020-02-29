@@ -1,13 +1,20 @@
 name: Release
 on:
   push:
-    branches:
-      - master
+    tags:
+      - v*
 jobs:
-  build-arm:
+  build:
     runs-on: ubuntu-latest
     steps:
       - uses: crazy-max/ghaction-docker-buildx@v1.0.5
+
       - uses: actions/checkout@v2
+
+      - name: Get tag name
+        id: get_tag_name
+        run: echo ::set-output name=VERSION::${GITHUB_REF/refs\/tags\//}
+
       - run: docker login -u jwalton9 -p ${{ secrets.DOCKER_PASSWORD }}
-      - run: docker buildx build --platform linux/amd64,linux/arm/v7,linux/arm64 --push -t jwalton9/joewalton.me .
+
+      - run: docker buildx build --platform linux/amd64,linux/arm/v7,linux/arm64 --push -t jwalton9/joewalton.me:${{ steps.get_tag_name.outputs.VERSION }} .
