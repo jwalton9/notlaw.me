@@ -1,10 +1,8 @@
-import React from 'react';
-
 interface Props {
   className?: string;
 }
 
-export const Logo = ({ className }: Props) => (
+export const Logo: React.FC<Props> = ({ className }) => (
   <svg className={className} xmlns="http://www.w3.org/2000/svg" viewBox="0 0 668.38 361">
     <path d="M445.61,0H314.23a5,5,0,0,0-4.37,2.53L179.68,228.43a5,5,0,0,1-8.74,0l-27.17-46.92a5,5,0,0,0-4.36-2.52H5.05a5,5,0,0,0-4.37,7.57L99.86,358.48a5,5,0,0,0,4.37,2.52H244.4a5,5,0,0,0,4.37-2.54L450,7.55A5,5,0,0,0,445.61,0Z" />
     <path d="M119,0H251.45a5,5,0,0,1,4.31,2.48l18.1,31a5,5,0,0,1,0,5l-66.23,115a5,5,0,0,1-8.65,0L114.65,7.5A5,5,0,0,1,119,0Z" />

@@ -6,7 +6,12 @@
     "noEmit": true,
     "strict": true,
     "isolatedModules": true,
-		"esModuleInterop": true
-  },
-  "include": ["src"]
+    "esModuleInterop": true,
+    "target": "es5",
+    "lib": ["dom", "dom.iterable", "esnext"],
+    "allowJs": true,
+    "skipLibCheck": true,
+    "forceConsistentCasingInFileNames": true,
+    "resolveJsonModule": true
+  }
 }

@@ -1,15 +1,14 @@
-import React from 'react';
-import { Link } from 'react-router-dom';
+import Link from 'next/link';
 
 import Logo from '../Logo';
 
-import * as styles from './styles';
+import styles from './Navigation.module.css';
 
 export const Navigation: React.FC = () => (
   <header className={styles.nav}>
     <ul className={styles.links}>
       <li>
-        <Link to="/">
+        <Link href="/">
           <Logo className={styles.logo} />
         </Link>
       </li>
