@@ -1,7 +1,7 @@
 import { AppProps } from 'next/app';
 import Head from 'next/head';
 
-import '../styles/global.css';
+import './_app.scss';
 import Navigation from '../components/Navigation';
 
 const App: React.FC<AppProps> = ({ Component, pageProps }) => (

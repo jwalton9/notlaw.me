@@ -1,5 +1,4 @@
 .nav {
-  position: fixed;
   display: flex;
   top: 0;
   right: 0;
@@ -7,18 +6,19 @@
   padding: 1rem 2rem;
   justify-content: space-between;
   align-items: center;
+  margin-bottom: 1rem;
 }
 
 .logo {
   height: 2rem;
-}
 
-.logo path {
-  fill: #fff;
-}
+  path {
+    fill: #fff;
 
-.logo path:first-of-type {
-  fill: #ddd;
+    &:first-of-type {
+      fill: #ddd;
+    }
+  }
 }
 
 .links {
@@ -27,12 +27,15 @@
   margin: 0;
   padding: 0;
   align-items: center;
-}
 
-.links li a {
-  text-transform: uppercase;
-  color: inherit;
-  text-decoration: none;
+  li {
+    margin-right: 2rem;
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+  }
 }
 
 .social {
@@ -41,13 +44,13 @@
   margin: 0;
   padding: 0;
   align-items: center;
-}
 
-.social li {
-  margin: 0 0.5rem;
-}
+  li {
+    margin: 0 0.5rem;
+  }
 
-.social svg {
-  height: 2rem;
-  fill: #fff;
+  svg {
+    height: 2rem;
+    fill: #fff;
+  }
 }

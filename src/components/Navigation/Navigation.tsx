@@ -2,19 +2,24 @@ import Link from 'next/link';
 
 import Logo from '../Logo';
 
-import styles from './Navigation.module.css';
+import styles from './Navigation.module.scss';
 
 export const Navigation: React.FC = () => (
   <header className={styles.nav}>
     <ul className={styles.links}>
       <li>
         <Link href="/">
-          <Logo className={styles.logo} />
+          <a>
+            <Logo className={styles.logo} />
+          </a>
         </Link>
       </li>
-      {/* <li>
-        <Link to="/blog">Blog</Link>
+      <li>
+        <Link href="/blog">
+          <a>Blog</a>
+        </Link>
       </li>
+      {/* 
       <li>
         <Link to="/about">About Me</Link>
       </li>

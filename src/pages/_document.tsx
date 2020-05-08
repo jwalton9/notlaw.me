@@ -1,13 +1,13 @@
-import NextDocument, { Html, Head, Main, NextScript, DocumentInitialProps, DocumentContext, } from 'next/document';
+import { ReactElement } from 'react';
+import NextDocument, { Html, Head, Main, NextScript, DocumentInitialProps, DocumentContext } from 'next/document';
 
 class Document extends NextDocument {
-
   static async getInitialProps(ctx: DocumentContext): Promise<DocumentInitialProps> {
-    const intialProps = await NextDocument.getInitialProps(ctx)
-    return { ...intialProps }
+    const intialProps = await NextDocument.getInitialProps(ctx);
+    return { ...intialProps };
   }
 
-  render() {
+  render(): ReactElement {
     return (
       <Html>
         <Head>
@@ -24,7 +24,6 @@ class Document extends NextDocument {
       </Html>
     );
   }
-};
+}
 
-
-export default Document
+export default Document;
