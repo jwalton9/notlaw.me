@@ -1,10 +1,10 @@
-import fs from 'fs';
-import path from 'path';
-import { promisify } from 'util';
 import { NextPage, GetStaticProps } from 'next';
-import fm from 'front-matter';
 import Link from 'next/link';
-import { blogFileNames, splitBlogFileName, readBlogFile } from '../../utils/content';
+
+import { blogFileNames, readBlogFile } from '../../utils/content';
+
+import styles from './index.module.scss';
+import { Page } from '../../components/Page';
 
 interface Props {
   posts: { title: string; date: string; slug: string }[];
@@ -15,12 +15,11 @@ export const getStaticProps: GetStaticProps<Props> = async () => {
 
   const posts = await Promise.all(
     filenames.map(async (filename) => {
-      const [year, month, day, ...slugs] = splitBlogFileName(filename);
-      const { title } = await readBlogFile(filename);
+      const { title, date, slug } = await readBlogFile(filename);
       return {
         title: title,
-        date: `${day}/${month}/${year}`,
-        slug: `/blog/${year}/${month}/${day}/${slugs.join('-')}`,
+        date,
+        slug,
       };
     }),
   );
@@ -29,17 +28,23 @@ export const getStaticProps: GetStaticProps<Props> = async () => {
 };
 
 const BlogPage: NextPage<Props> = ({ posts }) => (
-  <>
-    <h1>Blog</h1>
-    {posts.map((post) => (
-      <Link key={post.slug} href="/blog/[...slug]" as={post.slug}>
-        <a>
-          <h2>{post.title}</h2>
-          <p>{post.date}</p>
-        </a>
-      </Link>
-    ))}
-  </>
+  <Page title="Joe Blogs">
+    <div className={styles.spacing}>
+      <div className="o-container">
+        <h1 className="u-text-alpha u-margin-bottom-alpha">Joe Blogs</h1>
+        {posts.map((post) => (
+          <div key={post.slug} className="c-card">
+            <Link href="/blog/[...slug]" as={`/blog/${post.slug}`}>
+              <a>
+                <h2 className="u-text-beta">{post.title}</h2>
+                <p>Posted {post.date} by Joe Walton</p>
+              </a>
+            </Link>
+          </div>
+        ))}
+      </div>
+    </div>
+  </Page>
 );
 
 export default BlogPage;

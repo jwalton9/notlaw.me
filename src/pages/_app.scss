@@ -41,3 +41,45 @@ p {
   font-weight: inherit;
   line-height: inherit;
 }
+
+.o-container {
+  width: 100%;
+  max-width: 1000px;
+  margin: 0 auto;
+}
+
+.u-text-alpha {
+  font-size: 5rem;
+  line-height: 1.1;
+}
+
+.u-text-beta {
+  font-size: 4rem;
+}
+
+.u-text-gamma {
+  font-size: 2rem;
+}
+
+.u-text-delta {
+  font-size: 1.5rem;
+}
+
+.u-text-white {
+  color: #fff;
+}
+
+.c-card {
+  background: #fff;
+  padding: 2rem;
+  border-radius: 0.25rem;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
+}
+
+.u-margin-bottom {
+  margin-bottom: 1rem;
+}
+
+.u-margin-bottom-alpha {
+  margin-bottom: 2rem;
+}

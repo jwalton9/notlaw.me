@@ -1,0 +1,30 @@
+.container {
+  max-width: 800px !important;
+}
+
+.spacing {
+  padding: 1rem 1rem;
+  background: #f6e7cb;
+
+  @media screen and (min-width: 45rem) {
+    padding: 5rem 1rem;
+  }
+}
+
+.title {
+  font-size: 4rem;
+  + p {
+    margin-bottom: 3rem;
+  }
+}
+
+.richText {
+  h2 {
+    font-size: 3rem;
+    margin-bottom: 3rem;
+  }
+  p {
+    font-size: 1.5rem;
+    margin-bottom: 2rem;
+  }
+}
