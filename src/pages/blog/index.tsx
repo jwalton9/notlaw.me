@@ -4,23 +4,21 @@ import { promisify } from 'util';
 import { NextPage, GetStaticProps } from 'next';
 import fm from 'front-matter';
 import Link from 'next/link';
+import { blogFileNames, splitBlogFileName, readBlogFile } from '../../utils/content';
 
 interface Props {
   posts: { title: string; date: string; slug: string }[];
 }
 
 export const getStaticProps: GetStaticProps<Props> = async () => {
-  const blogDir = path.join(process.cwd(), '_content/blog');
-  const filenames = await promisify(fs.readdir)(blogDir);
+  const filenames = await blogFileNames();
 
   const posts = await Promise.all(
-    filenames.map(async (name) => {
-      const [year, month, day, ...slugs] = name.replace(/\.md$/, '').split('-');
-      const filePath = path.join(blogDir, name);
-      const fileContents = await promisify(fs.readFile)(filePath, 'utf8');
-      const { attributes } = fm<{ title: string }>(fileContents);
+    filenames.map(async (filename) => {
+      const [year, month, day, ...slugs] = splitBlogFileName(filename);
+      const { title } = await readBlogFile(filename);
       return {
-        title: attributes.title,
+        title: title,
         date: `${day}/${month}/${year}`,
         slug: `/blog/${year}/${month}/${day}/${slugs.join('-')}`,
       };

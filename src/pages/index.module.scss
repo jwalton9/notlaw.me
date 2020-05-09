@@ -1,43 +1,62 @@
-.page {
-  display: flex;
-  align-items: center;
-  justify-content: center;
+@keyframes bounce {
+  0% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-1rem);
+  }
+  100% {
+    transform: translateY(0);
+  }
+}
+
+.sectionOne {
+  padding: 0 5rem 5rem 5rem;
+  background: rgb(1, 111, 185);
+  background: linear-gradient(0deg, rgba(1, 111, 185, 1) 0%, rgba(0, 54, 255, 1) 100%);
+  color: #fff;
+  min-height: 100vh;
+}
+
+.sectionTwo {
   padding: 5rem;
+  background: rgb(242, 187, 5);
+  background: linear-gradient(0deg, rgba(242, 187, 5, 1) 0%, rgba(255, 169, 0, 1) 100%);
+  color: #1a1a1a;
+  min-height: 100vh;
 }
 
 .heading {
   font-size: 3rem;
   margin: 0;
   margin-bottom: 0.5rem;
+  font-weight: normal;
 }
 
 .subheading {
   font-size: 1.5rem;
+  font-weight: normal;
   margin: 0;
-  color: #ddd;
 }
 
-.section {
+.panel {
   display: grid;
-  align-items: center;
-  justify-items: center;
   grid-gap: 2rem;
-  grid-template-columns: 1fr 1fr;
-  color: #fff;
+  align-items: center;
 
-  @media screen and (max-width: 45rem) {
-    text-align: center;
-    grid-template-columns: 1fr;
+  @media (min-width: 45rem) {
+    grid-template-columns: 1fr 1fr;
   }
 }
 
 .image {
   width: 100%;
-  max-width: 20rem;
+  max-width: 30rem;
   border-radius: 50%;
   border: 0.5rem solid #fff;
   overflow: hidden;
   position: relative;
+  animation: bounce 5s ease-in-out forwards infinite;
 
   &:before {
     content: '';
@@ -52,5 +71,20 @@
     left: 0;
     bottom: 0;
     right: 0;
+  }
+}
+
+.posts {
+  display: grid;
+  grid-gap: 1rem;
+
+  @media (min-width: 45rem) {
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+  }
+
+  > div {
+    padding: 1rem;
+    border: 1px solid #1a1a1a;
+    font-size: 1.5rem;
   }
 }
