@@ -1,0 +1,9 @@
+.spacing {
+  height: 100%;
+  padding: 1rem 1rem;
+  background: #f6e7cb;
+
+  @media screen and (min-width: 45rem) {
+    padding: 5rem 1rem;
+  }
+}
