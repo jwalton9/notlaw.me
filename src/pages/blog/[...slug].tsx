@@ -1,5 +1,4 @@
 import { NextPage, GetStaticPaths, GetStaticProps } from 'next';
-import cx from 'classnames';
 
 import { blogFileNames, readBlogFile, parseFileName } from '../../utils/content';
 import { Page } from '../../components/Page';
