@@ -1,3 +1,5 @@
+@import '../styles/tools';
+
 @keyframes bounce {
   0% {
     transform: translateY(0);
@@ -10,31 +12,14 @@
   }
 }
 
-.section {
-  position: relative;
-  padding: 5rem;
-}
-
-.sectionOne {
-  z-index: 3;
-  background: rgb(1, 111, 185);
-  background: linear-gradient(0deg, rgba(1, 111, 185, 1) 0%, rgba(0, 54, 255, 1) 100%);
-}
-
-.sectionTwo {
-  z-index: 2;
-  background: rgb(242, 187, 5);
-  background: #f6e7cb;
-  color: #1a1a1a;
-}
-
 .panel {
-  display: grid;
-  grid-gap: 5rem;
+  display: flex;
+  flex-direction: column;
   align-items: center;
 
-  @media (min-width: 45rem) {
-    grid-template-columns: 1fr 1fr;
+  @include mq($from: desktop) {
+    flex-direction: row;
+    justify-content: flex-start;
   }
 }
 
@@ -42,32 +27,34 @@
   width: 100%;
   max-width: 30rem;
   border-radius: 50%;
-  border: 0.5rem solid #fff;
   overflow: hidden;
   position: relative;
   animation: bounce 5s ease-in-out forwards infinite;
-
-  &:before {
-    content: '';
-    display: block;
-    height: 0;
-    padding-bottom: 100%;
-  }
-
-  img {
-    position: absolute;
-    top: 0;
-    left: 0;
-    bottom: 0;
-    right: 0;
-  }
 }
 
-.posts {
+.text {
+  text-align: center;
+}
+.icons {
   display: grid;
-  grid-gap: 1rem;
+  grid-template-columns: 1.5rem 1.5rem 1.5rem;
+  grid-gap: spacing(delta);
+  justify-content: center;
 
-  @media (min-width: 45rem) {
-    grid-template-columns: 1fr 1fr 1fr;
+  svg {
+    fill: #000;
+  }
+}
+@include mq($from: desktop) {
+  .panel {
+    flex-direction: row;
+    justify-content: flex-start;
+  }
+  .text {
+    text-align: left;
+    padding-left: spacing(beta);
+  }
+  .icons {
+    justify-content: start;
   }
 }

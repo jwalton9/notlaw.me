@@ -3,7 +3,6 @@ import Link from 'next/link';
 
 import { blogFileNames, readBlogFile } from '../../utils/content';
 
-import styles from './index.module.scss';
 import { Page } from '../../components/Page';
 
 interface Props {
@@ -29,14 +28,14 @@ export const getStaticProps: GetStaticProps<Props> = async () => {
 
 const BlogPage: NextPage<Props> = ({ posts }) => (
   <Page title="Joe Blogs">
-    <div className={styles.spacing}>
+    <div className="u-padding-delta">
       <div className="o-container">
-        <h1 className="u-text-alpha u-margin-bottom-alpha">Joe Blogs</h1>
+        <h1 className="u-text-gamma u-margin-bottom-delta">Latest</h1>
         {posts.map((post) => (
-          <div key={post.slug} className="c-card">
+          <div key={post.slug} className="c-card u-padding-gamma">
             <Link href="/blog/[...slug]" as={`/blog/${post.slug}`}>
               <a>
-                <h2 className="u-text-beta">{post.title}</h2>
+                <h2 className="u-text-delta">{post.title}</h2>
                 <p>Posted {post.date} by Joe Walton</p>
               </a>
             </Link>

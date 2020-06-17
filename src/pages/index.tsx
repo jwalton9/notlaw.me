@@ -1,57 +1,35 @@
-import { NextPage, GetStaticProps } from 'next';
+import { NextPage } from 'next';
 import cx from 'classnames';
 
 import styles from './index.module.scss';
-import { blogFileNames, readBlogFile } from '../utils/content';
 import { Page } from '../components/Page';
-import Link from 'next/link';
+import { Github, Twitter, Instagram } from '../components/Icons';
 
-interface Props {
-  blogPosts: { title: string; date: string; slug: string }[];
-}
-
-export const getStaticProps: GetStaticProps<Props> = async () => {
-  const blogFiles = await blogFileNames();
-  const blogPosts = await Promise.all(
-    blogFiles.map(async (filename) => {
-      const { title, slug, date } = await readBlogFile(filename);
-      return { title, slug, date };
-    }),
-  );
-  return { props: { blogPosts } };
-};
-
-const Home: NextPage<Props> = ({ blogPosts }) => (
-  <Page title="Joe Walton | Software Engineer">
-    <section className={cx(['u-text-white', styles.section, styles.sectionOne])}>
+const Home: NextPage = () => (
+  <Page title="Joe Walton | Software Engineer" footer={false}>
+    <section className={cx('u-padding-alpha', styles.sectionOne)}>
       <div className="o-container">
         <div className={styles.panel}>
-          <div>
-            <h2 className="u-text-alpha">Hello there!</h2>
-            <p className="u-text-beta">I&apos;m Joe.</p>
-            <p className="u-text-gamma">This is a picture of me.</p>
-          </div>
-          <div className={styles.image}>
-            <img alt="me" src="/images/me.webp" />
-          </div>
-        </div>
-      </div>
-    </section>
-    <section className={cx([styles.section, styles.sectionTwo])}>
-      <div className="o-container">
-        <h2 className="u-text-alpha">I like to write.</h2>
-        <p className="u-margin-bottom-alpha u-text-gamma">Below you can find the latest posts from my blog.</p>
-        <div className={styles.posts}>
-          {blogPosts.map((blogPost) => (
-            <div key={blogPost.title} className="c-card">
-              <Link href="/blog/[...slug]" as={`/blog/${blogPost.slug}`}>
-                <a>
-                  <h3 className="u-text-delta">{blogPost.title}</h3>
-                  <p>Posted {blogPost.date}</p>
-                </a>
-              </Link>
+          <picture>
+            <source srcSet="/images/me.webp" type="image/webp" />
+            <source srcSet="/images/me.jpg" type="image/jpeg" />
+            <img className={cx('u-margin-bottom-beta', styles.image)} alt="me" src="/images/me.jpg" />
+          </picture>
+          <div className={styles.text}>
+            <h2 className="u-text-alpha u-text-bold">Joe Walton</h2>
+            <p className="u-text-delta u-text-bold u-margin-bottom-delta">Software Engineer</p>
+            <div className={styles.icons}>
+              <a href="https://github.com/jwalton9">
+                <Github />
+              </a>
+              <a href="https://twitter.com/jwalton9">
+                <Twitter />
+              </a>
+              <a href="https://instagram.com/jwalton9">
+                <Instagram />
+              </a>
             </div>
-          ))}
+          </div>
         </div>
       </div>
     </section>

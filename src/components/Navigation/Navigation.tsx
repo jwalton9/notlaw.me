@@ -6,7 +6,7 @@ import styles from './Navigation.module.scss';
 
 export const Navigation: React.FC = () => (
   <header className={styles.nav}>
-    <div className="o-container">
+    <div className="o-container u-text-eta">
       <ul className={styles.links}>
         <li>
           <Link href="/">

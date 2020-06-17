@@ -1,0 +1,21 @@
+$breakpoints: (
+  tablet: 740px,
+  desktop: 1024px,
+) !default;
+
+@mixin mq($from) {
+  @media screen and (min-width: em(map-get($breakpoints, $from))) {
+    @content;
+  }
+}
+
+@mixin font-size($name) {
+  $text-size: map-get($text-sizes, $name);
+
+  font-size: em(map-get($text-size, 'small'));
+  line-height: map-get($text-size, line-height);
+
+  @include mq($from: desktop) {
+    font-size: em(map-get($text-size, 'large'));
+  }
+}

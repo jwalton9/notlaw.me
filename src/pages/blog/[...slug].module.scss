@@ -1,30 +1,12 @@
-.container {
-  max-width: 800px !important;
-}
-
-.spacing {
-  padding: 1rem 1rem;
-  background: #f6e7cb;
-
-  @media screen and (min-width: 45rem) {
-    padding: 5rem 1rem;
-  }
-}
-
-.title {
-  font-size: 4rem;
-  + p {
-    margin-bottom: 3rem;
-  }
-}
+@import '../../styles/tools';
 
 .richText {
   h2 {
-    font-size: 3rem;
-    margin-bottom: 3rem;
+    @include font-size(gamma);
+    margin-bottom: spacing(delta);
   }
   p {
-    font-size: 1.5rem;
-    margin-bottom: 2rem;
+    @include font-size(zeta);
+    margin-bottom: spacing(gamma);
   }
 }

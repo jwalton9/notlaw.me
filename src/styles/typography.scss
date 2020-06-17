@@ -1,0 +1,9 @@
+@each $name, $map in $text-sizes {
+  .u-text-#{$name} {
+    @include font-size($name);
+  }
+}
+
+.u-text-bold {
+  font-weight: 600;
+}

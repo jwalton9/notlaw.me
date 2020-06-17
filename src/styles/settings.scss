@@ -1,0 +1,47 @@
+$base-spacing-unit: 20px !default;
+
+$text-sizes: (
+  alpha: (
+    line-height: 1.15,
+    small: 52px,
+    large: 66px,
+  ),
+  beta: (
+    line-height: 1.15,
+    small: 41px,
+    large: 52px,
+  ),
+  gamma: (
+    line-height: 1.15,
+    small: 32px,
+    large: 41px,
+  ),
+  delta: (
+    line-height: 1.15,
+    small: 26px,
+    large: 32px,
+  ),
+  epsilon: (
+    line-height: 1.5,
+    small: 20px,
+    large: 26px,
+  ),
+  zeta: (
+    line-height: 1.5,
+    small: 16px,
+    large: 20px,
+  ),
+  eta: (
+    line-height: 1.5,
+    small: 13px,
+    large: 16px,
+  ),
+) !default;
+
+$spacing-multipliers: (
+  alpha: 4,
+  beta: 2,
+  gamma: 1,
+  delta: 0.5,
+  epsilon: 0.25,
+) !default;

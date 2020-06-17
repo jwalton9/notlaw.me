@@ -6,9 +6,10 @@ import Head from 'next/head';
 
 interface Props {
   title: string;
+  footer?: boolean;
 }
 
-export const Page: React.FC<Props> = ({ title, children }) => (
+export const Page: React.FC<Props> = ({ title, footer = true, children }) => (
   <>
     <Head>
       <title>{title}</title>
@@ -16,7 +17,7 @@ export const Page: React.FC<Props> = ({ title, children }) => (
     <div className={styles.page}>
       <Navigation />
       <div>{children}</div>
-      <Footer />
+      {footer && <Footer />}
     </div>
   </>
 );

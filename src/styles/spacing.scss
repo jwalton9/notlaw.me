@@ -1,0 +1,16 @@
+$directions: (left, right, top, bottom);
+
+$properties: (padding, margin);
+@each $prop in $properties {
+  @each $name, $multiplier in $spacing-multipliers {
+    .u-#{$prop}-#{$name} {
+      #{$prop}: spacing($name);
+    }
+
+    @each $direction in $directions {
+      .u-#{$prop}-#{$direction}-#{$name} {
+        #{$prop}-#{$direction}: spacing($name);
+      }
+    }
+  }
+}

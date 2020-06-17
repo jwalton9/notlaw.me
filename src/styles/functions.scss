@@ -1,0 +1,7 @@
+@function em($px) {
+  @return ($px / 16px) * 1em;
+}
+
+@function spacing($name) {
+  @return em(map-get($spacing-multipliers, $name) * $base-spacing-unit);
+}
