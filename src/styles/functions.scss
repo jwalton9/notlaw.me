@@ -1,7 +1,7 @@
-@function em($px) {
-  @return ($px / 16px) * 1em;
+@function rem($px, $base: $base-font-size) {
+  @return ($px / $base-font-size) * 1rem;
 }
 
 @function spacing($name) {
-  @return em(map-get($spacing-multipliers, $name) * $base-spacing-unit);
+  @return rem(map-get($spacing-multipliers, $name) * $base-spacing-unit);
 }
