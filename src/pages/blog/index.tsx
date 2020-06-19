@@ -28,21 +28,17 @@ export const getStaticProps: GetStaticProps<Props> = async () => {
 
 const BlogPage: NextPage<Props> = ({ posts }) => (
   <Page title="Joe Blogs">
-    <div className="u-padding-delta">
-      <div className="o-container">
-        <h1 className="u-text-gamma u-margin-bottom-delta">Latest</h1>
-        {posts.map((post) => (
-          <div key={post.slug} className="c-card u-padding-gamma">
-            <Link href="/blog/[...slug]" as={`/blog/${post.slug}`}>
-              <a>
-                <h2 className="u-text-delta">{post.title}</h2>
-                <p>Posted {post.date} by Joe Walton</p>
-              </a>
-            </Link>
-          </div>
-        ))}
+    <h1 className="u-text-gamma u-margin-bottom-delta">Latest</h1>
+    {posts.map((post) => (
+      <div key={post.slug} className="c-card u-padding-gamma">
+        <Link href="/blog/[...slug]" as={`/blog/${post.slug}`}>
+          <a>
+            <h2 className="u-text-delta">{post.title}</h2>
+            <p>Posted {post.date} by Joe Walton</p>
+          </a>
+        </Link>
       </div>
-    </div>
+    ))}
   </Page>
 );
 

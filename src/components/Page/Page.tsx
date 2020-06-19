@@ -16,7 +16,9 @@ export const Page: React.FC<Props> = ({ title, footer = true, children }) => (
     </Head>
     <div className={styles.page}>
       <Navigation />
-      <div>{children}</div>
+      <div className="u-padding-left-beta u-padding-right-beta u-margin-top-gamma u-margin-bottom-gamma">
+        <div className="o-container">{children}</div>
+      </div>
       {footer && <Footer />}
     </div>
   </>

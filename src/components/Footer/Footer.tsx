@@ -1,7 +1,7 @@
 export const Footer: React.FC = () => (
-  <footer className="u-padding-gamma">
+  <footer className="u-padding-beta">
     <div className="o-container">
-      <p>Copyright {new Date().getFullYear()} &copy; Joe Walton</p>
+      <p className="u-text-eta">Copyright {new Date().getFullYear()} &copy; Joe Walton</p>
     </div>
   </footer>
 );

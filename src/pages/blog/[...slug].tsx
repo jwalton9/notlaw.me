@@ -31,13 +31,9 @@ export const getStaticProps: GetStaticProps<Props, Params> = async ({ params }) 
 
 const BlogPage: NextPage<Props> = ({ title, body, date }) => (
   <Page title={`Joe Blogs | ${title}`}>
-    <div className="u-padding-gamma">
-      <div className="o-container c-card u-padding-beta">
-        <h1 className="u-text-alpha">{title}</h1>
-        <p className="u-margin-bottom-gamma">{date} by Joe Walton</p>
-        <div className={styles.richText} dangerouslySetInnerHTML={{ __html: body }} />
-      </div>
-    </div>
+    <h1 className="u-text-alpha">{title}</h1>
+    <p className="u-margin-bottom-gamma">{date} by Joe Walton</p>
+    <div className={styles.richText} dangerouslySetInnerHTML={{ __html: body }} />
   </Page>
 );
 
